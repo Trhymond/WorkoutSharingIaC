@@ -1,0 +1,94 @@
+{
+ "properties": {
+  "displayName": "AllowedTagValues",
+  "policyType": "Custom",
+  "description": "AllowedTagValues",
+  "metadata": {
+   "version": "1.0",
+   "createdBy": "b3ac31aa-bff0-46fa-bc5f-401228de8a3d",
+   "createdOn": "2021-02-09T17:50:11.3454178Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "listOfCostCenterAllowed": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "listOfCostCenterAllowed"
+    },
+    "allowedValues": [
+     "WESCO Enterprise",
+     "AB123",
+     "AB234"
+    ]
+   },
+   "listOfCriticalityAllowed": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "listOfCriticalityAllowed"
+    },
+    "allowedValues": [
+     "Business Critical",
+     "Unit Critical",
+     "High",
+     "Medium",
+     "Low",
+     "Unsupported",
+     "Compliance Critical",
+     "Security Critical"
+    ]
+   },
+   "listOfEnvironmentsAllowed": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "listOfEnvironmentsAllowed"
+    },
+    "allowedValues": [
+     "Shared Services",
+     "Sandbox",
+     "Dev",
+     "POC",
+     "QA",
+     "Performance",
+     "Production"
+    ]
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Deny cost centers not listed_1",
+    "policyDefinitionId": "/subscriptions/21119adb-2ed9-468e-ac66-6869ed259b10/providers/Microsoft.Authorization/policyDefinitions/allowedCostCenters",
+    "parameters": {
+     "listOfCostCenterAllowed": {
+      "value": "[parameters('listOfCostCenterAllowed')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deny criticality not listed_1",
+    "policyDefinitionId": "/subscriptions/21119adb-2ed9-468e-ac66-6869ed259b10/providers/Microsoft.Authorization/policyDefinitions/allowedCriticality",
+    "parameters": {
+     "listOfCriticalityAllowed": {
+      "value": "[parameters('listOfCriticalityAllowed')]"
+     }
+    },
+    "groupNames": []
+   },
+   {
+    "policyDefinitionReferenceId": "Deny environments not listed_1",
+    "policyDefinitionId": "/subscriptions/21119adb-2ed9-468e-ac66-6869ed259b10/providers/Microsoft.Authorization/policyDefinitions/allowedEnvironment",
+    "parameters": {
+     "listOfEnvironmentsAllowed": {
+      "value": "[parameters('listOfEnvironmentsAllowed')]"
+     }
+    },
+    "groupNames": []
+   }
+  ],
+  "policyDefinitionGroups": []
+ },
+ "id": "/subscriptions/21119adb-2ed9-468e-ac66-6869ed259b10/providers/Microsoft.Authorization/policySetDefinitions/324455108424411da14fe399",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "324455108424411da14fe399"
+}
